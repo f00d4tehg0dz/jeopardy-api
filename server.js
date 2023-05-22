@@ -18,7 +18,7 @@ const limiter = rateLimit({
 //  Apply to all requests
 app.use(limiter);
 
-app.get('/api/data', (req, res) => {
+app.get('/jeopardy/data', (req, res) => {
   let count = parseInt(req.query.count) || 100;
 
   // Get subset of data based on count
