@@ -41,5 +41,5 @@ app.get('/api/data', (req, res) => {
   res.json(responseObject);
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 6969;
 app.listen(port, () => console.log(`Server running on port ${port}`));
