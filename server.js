@@ -6,7 +6,7 @@ const _ = require('lodash');
 const app = express();
 
 // Read and parse JSON file
-let rawdata = fs.readFileSync('JEOPARDY_QUESTIONS1.JSON');
+let rawdata = fs.readFileSync('JEOPARDY_QUESTIONS1.json');
 let data = JSON.parse(rawdata);
 
 // Apply rate limits
