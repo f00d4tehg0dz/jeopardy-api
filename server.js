@@ -1,11 +1,12 @@
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const fs = require('fs');
+const _ = require('lodash');
 
 const app = express();
 
 // Read and parse JSON file
-let rawdata = fs.readFileSync('JEOPARDY_QUESTIONS1.json');
+let rawdata = fs.readFileSync('JEOPARDY_QUESTIONS1.JSON');
 let data = JSON.parse(rawdata);
 
 // Apply rate limits
@@ -21,7 +22,7 @@ app.get('/api/data', (req, res) => {
   let count = parseInt(req.query.count) || 100;
 
   // Get subset of data based on count
-  let subset = data.slice(0, count);
+  let subset = _.sampleSize(data, count);
 
   // Prepare response object
   let responseObject = subset.map(item => {
